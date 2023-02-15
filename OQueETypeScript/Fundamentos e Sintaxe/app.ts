@@ -31,4 +31,28 @@ const arrayPessoa: Array<Pessoa> = [
 
 const arrayNum: number[] = [1, 2, 3]
 
-const arrayString: Array<string> = [ "1", "2", "3" ]
+const arrayString: Array<string> = ["1", "2", "3"]
+
+//Decisões e Repetições
+
+const num: number = 15
+if (num > 15) {
+    console.log('Num maior que 15');    
+} else if(num === 15) {
+    console.log('Num igual a 15');    
+} else {
+    console.log('Num menor que 15');    
+}
+
+const typeUser = {
+    adm: 'Seja bem vindo admin',
+    student: 'Voce é um estudante',
+    viwer: 'Voce pode visualizar',
+}
+function validateUser(user: string) {
+    console.log(typeUser[user as keyof typeof typeUser]);  
+}
+const usuario = 'adm'
+validateUser(usuario)
+validateUser('student')
+validateUser('viwer')
