@@ -1,0 +1,7 @@
+npm i -g typescript
+npm init --y 
+npm i -D typescript
+npm i -d ts-node-dev
+npx tsc --init
+npm i -D ts-node
+npm ts-node app.ts
