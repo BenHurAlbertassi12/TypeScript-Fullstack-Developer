@@ -68,3 +68,10 @@ while (numW < 6) {
     console.log(n);
     n++
 }
+
+//Array
+const arrayNumb: Array<number> = [1,2,3,4,5]
+const arrayStri: string[] = ["1", "2", "3", "4", "5"]
+console.log(arrayNumb[0]);
+console.log(arrayStri.length);
+
