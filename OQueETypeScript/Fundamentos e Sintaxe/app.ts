@@ -81,5 +81,15 @@ arrayNum.pop()
 console.log(arrayNumb, arrayNumb.length);
 
 // Manipulando Arrays
+const buscaNum = arrayNumb.find(num => num === 4)
+console.log(buscaNum);
+
+arrayNumb.forEach(num => console.log(num))
+arrayNumb.forEach(num => {
+    if(num > 2 && num % 2 === 0)
+    console.log(num)
+})
+
+arrayNum.map(num => console.log(num))
 
 
