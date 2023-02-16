@@ -5,3 +5,9 @@ npm i -d ts-node-dev
 npx tsc --init
 npm i -D ts-node
 npm ts-node app.ts
+
+npx create-react-app my-app-ts --template typescript
+npm i styled-components
+npm i --save-dev @types/styled-components
+
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
