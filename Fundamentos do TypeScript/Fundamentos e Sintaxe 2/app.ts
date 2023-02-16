@@ -1,20 +1,40 @@
-//POO
-class User {
-    name: string = 'Ben'
-    age: number = 34
+//Dio Banking
 
-    constructor(name: string, age: number) {
+//Name, AccountNnmber
+//Depositar, Sacar
+
+class Account {
+    name: string
+    accountNumber: number
+
+    constructor(name: string, accountNumber: number) {
         this.name = name
-        this.age = age
+        this.accountNumber = accountNumber
     }
 
-    showName = () => {
-        console.log(this.name);
+    deposit = () => {
+        console.log('Voce depositou');      
+    }
+    whithdraw = () => {
+        console.log('Voce retirou');      
     }
 }
-const user = new User("Jessica", 28)
-user.showName()
 
-const otherUser = new User("Hatus", 30)
-user.showName()
+class Admin extends Account {
+  balance: number;
+
+  constructor(name: string, accountNumber: number) {
+    super(name, accountNumber);
+    this.balance = 20;
+  }
+  getValue = () => {
+    console.log(this.balance);
+  };
+}
+
+const benAccount: Admin = new Admin('Ben', 34)
+console.log(benAccount);
+
+const admAccount: Account = new Account('Hatus', 30)
+console.log(admAccount);
 
