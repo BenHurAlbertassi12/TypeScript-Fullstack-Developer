@@ -3,38 +3,37 @@
 //Name, AccountNnmber
 //Depositar, Sacar
 
-class Account {
-    name: string
-    accountNumber: number
-
-    constructor(name: string, accountNumber: number) {
-        this.name = name
-        this.accountNumber = accountNumber
-    }
-
-    deposit = () => {
-        console.log('Voce depositou');      
-    }
-    whithdraw = () => {
-        console.log('Voce retirou');      
-    }
-}
-
-class Admin extends Account {
-  balance: number;
+abstract class Account {
+  name: string;
+  accountNumber: number;
+  balance: number = 0;
 
   constructor(name: string, accountNumber: number) {
-    super(name, accountNumber);
-    this.balance = 20;
+    this.name = name;
+    this.accountNumber = accountNumber;
   }
+
+  deposit = () => {
+    console.log('Voce depositou');
+  };
+  whithdraw = () => {
+    console.log('Voce retirou');
+  };
   getValue = () => {
     console.log(this.balance);
   };
 }
 
-const benAccount: Admin = new Admin('Ben', 34)
+class PeopleAccount extends Account {
+    doc_id: number
+
+    constructor(doc_id: number, name: string, accountNumber: number) {
+        super(name, accountNumber)
+        this.doc_id = doc_id
+    }
+}
+
+const benAccount: PeopleAccount = new PeopleAccount(1, 'Ben', 34);
 console.log(benAccount);
 
-const admAccount: Account = new Account('Hatus', 30)
-console.log(admAccount);
 
