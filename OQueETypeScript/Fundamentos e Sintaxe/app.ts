@@ -73,5 +73,13 @@ while (numW < 6) {
 const arrayNumb: Array<number> = [1,2,3,4,5]
 const arrayStri: string[] = ["1", "2", "3", "4", "5"]
 console.log(arrayNumb[0]);
-console.log(arrayStri.length);
+console.log(arrayNumb.length);
+console.log(arrayNumb, arrayNumb.length);
+arrayNum.push(6)
+console.log(arrayNumb, arrayNumb.length);
+arrayNum.pop()
+console.log(arrayNumb, arrayNumb.length);
+
+// Manipulando Arrays
+
 
