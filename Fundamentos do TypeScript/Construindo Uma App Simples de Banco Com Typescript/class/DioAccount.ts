@@ -27,6 +27,6 @@ export abstract class DioAccount {
   };
   private validateStatus = (): boolean => {
     if (this.status) this.status;
-    throw new Error();
+    throw new Error('Conta inválida');
   };
 }
