@@ -1,14 +1,11 @@
-import { CompanyAccount } from './class/CompanyAccount';
 import { PeopleAccount } from './class/PeopleAccount';
 
-
-
-
 const benAccount: PeopleAccount = new PeopleAccount(1, 'Ben', 34);
-benAccount.deposit()
+console.log(benAccount);
+benAccount.setname('BenHur Albertassi');
+console.log(benAccount);
+console.log(benAccount.getName());
 
-const companyAccount: CompanyAccount = new CompanyAccount('DIO Account', 20)
-companyAccount.deposit()
 
 
 
