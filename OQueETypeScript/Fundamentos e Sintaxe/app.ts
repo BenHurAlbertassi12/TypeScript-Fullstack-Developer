@@ -56,3 +56,15 @@ const usuario = 'adm'
 validateUser(usuario)
 validateUser('student')
 validateUser('viwer')
+
+// Estrutura de Repetição
+//for
+for (let index = 0; index < 5; index++) {
+    console.log(index);
+}
+///while
+let numW = 2
+while (numW < 6) {
+    console.log(n);
+    n++
+}
