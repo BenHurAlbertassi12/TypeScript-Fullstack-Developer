@@ -14,4 +14,13 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 npm init --y
 npm i -D typescript ts-node-dev
-npm build
+npm run build
+npm i express
+npm i -D @types/express
+
+npm run dev
+npm i -D jest ts-jest @types/jest
+npx jest --init
+
+npm install typeorm
+npm run typeorm migration:create
