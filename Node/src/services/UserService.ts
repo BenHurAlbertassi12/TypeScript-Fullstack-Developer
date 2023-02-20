@@ -1,32 +1,58 @@
-export interface User {
-  name: string
-  email: string
-}
-
-const db = [
-  {
-    name: 'Hatus',
-    email: 'dev.hatus@gmail.com',
-  }
-];
+import { sign } from 'jsonwebtoken';
+import { AppDataSource } from '../database';
+import { User } from '../entities/User';
+import { UserRepository } from '../repositories/UserRepository';
 
 export class UserService {
-  db: User[];
+  private userRepository: UserRepository;
 
-  constructor(database = db) {
-    this.db = database;
+  constructor(userRepository = new UserRepository(AppDataSource.manager)) {
+    this.userRepository = userRepository;
   }
 
-  createuser = (name: string, email: string) => {
-    const user = {
-      name,
-      email,
-    };
-    this.db.push(user);
-    console.log('DB Atualizado', this.db);
+  createUser = async (
+    name: string,
+    email: string,
+    password: string
+  ): Promise<User> => {
+    const user = new User(name, email, password);
+    return this.userRepository.createUser(user);
   };
 
-  getAllUser = () => this.db;
+  getUser = async (userId: string): Promise<User | null> => {
 
-  deleteUser = () => this.db
+    return this.userRepository.getUser(userId)
+   };
+  
+
+  getAuthenticateUser = async (
+    email: string,
+    password: string
+  ): Promise<User | null> => { 
+    return this.userRepository.getUserByEmailAndPassword(email, password)
+  };
+  getToken = async (
+    email: string,
+    password: string
+  ): Promise<string> => {
+    const user = await this.getAuthenticateUser(email, password)
+
+    if (!user) {
+      throw new Error('Email ou senha invalida')
+    }
+
+    const tokenData = {
+      name: user?.name,
+      email:user?.email
+    }
+    const tokenKey = '123456789'
+
+    const tokenOption = {
+      subject: user?.user_id
+    }
+    const token = sign(tokenData, tokenKey, tokenOption);
+    return token
+
+    // return user?.user_id
+  }
 }

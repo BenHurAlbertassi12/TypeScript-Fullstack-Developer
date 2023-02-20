@@ -15,13 +15,18 @@ export class UserController {
       return res.status(400).json({ message: 'Bad Request: name invalid' });
     }
 
-    this.userService.createuser(user.name, user.email);
+    this.userService.createUser(user.name, user.email, user.password);
     return res.status(201).json({ message: 'Usuário Criado' });
   };
 
-  getAllUser = (req: Request, res: Response) => {
-    const users = this.userService.getAllUser();
-    return res.status(200).json(users);
+  getUser = async (req: Request, res: Response) => {
+    const { userId } = req.params
+    const user = await this.userService.getUser(userId)
+    return res.status(200).json({
+      userId: user?.user_id,
+      name: user?.name,
+      email:user?.email
+    })
   };
 
   deleteUser = (req: Request, res: Response) => {
